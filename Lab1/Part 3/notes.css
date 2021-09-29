@@ -4,10 +4,15 @@
   height: 100%;
 }
 
+#title {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #c3073f;
+}
+
 .flex {
   display: flex;
   height: 70vh;
-  border: 10px solid darkblue;
+  border: 10px solid #4e4e50;
   border-radius: 25px;
 }
 
@@ -16,7 +21,7 @@
 }
 
 .left-pane {
-  border: 1px solid darkblue;
+  border-right: 10px solid #4e4e50;
   width: 30%;
 }
 
@@ -28,4 +33,5 @@ body,
 html {
   margin: 15px;
   height: 100%;
+  background-color: #1a1a1d;
 }
