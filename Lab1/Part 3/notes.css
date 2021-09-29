@@ -47,6 +47,28 @@
   height: 40%;
   width: 16%;
   border-radius: 5px;
+  flex-wrap: nowrap;
+}
+
+.note-box {
+  border: 5px solid #4e4e50;
+  margin: 2%;
+  border-radius: 10px;
+  height: 50%;
+}
+
+#textarea {
+  width: 100%;
+  border-radius: 5px;
+  font-size: x-large;
+  height: 100%;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
+}
+
+#write-note {
+  font-size: x-large;
 }
 
 body,
