@@ -1,42 +1,53 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Simple Note Taking App</title>
     <link rel="stylesheet" href="notes.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="notes.js"></script>
 </head>
+
 <body>
     <div class="container">
-    <header>
+        <header>
             <h1 class="headers">Simple Note Taking App</h1>
-    </header>
-    <main>
-        <div class="flex">
-            <div class="flex-child left-pane">
-                <h2 class="headers">Choose a colour for your note:</h2>
-                <div class="colour-box">
-                    <div class="colour red">  </div>
-                    <div class="colour pink">  </div>
-                    <div class="colour orange">  </div>
-                    <div class="colour yellow">  </div>
-                    <div class="colour purple">  </div>
-                    <div class="colour green">  </div>
-                    <div class="colour blue">  </div>
-                    <div class="colour brown">  </div>
-                    <div class="colour white">  </div>
-                    <div class="colour grey">  </div>
+        </header>
+        <main>
+            <div class="flex">
+                <div class="flex-child left-pane">
+                    <h2 class="headers">Choose a colour for your note:</h2>
+                    <div class="colour-box">
+                        <div class="colour red"> </div>
+                        <div class="colour pink"> </div>
+                        <div class="colour orange"> </div>
+                        <div class="colour yellow"> </div>
+                        <div class="colour purple"> </div>
+                        <div class="colour green"> </div>
+                        <div class="colour blue"> </div>
+                        <div class="colour brown"> </div>
+                        <div class="colour white"> </div>
+                        <div class="colour grey"> </div>
+                    </div>
+                    <div>
+                        <h3 class="headers" id="write-note">Write a note:</h3>
+                        <button class="save-button">Save</button>
+                    </div>
+
+                    <div class="note-box">
+                        <textarea id="textarea"></textarea>
+                    </div>
+
                 </div>
-                <h3 class="headers" id="write-note">Write a note:</h3>
-                <div class="note-box">
-                    <textarea id="textarea"></textarea>
+                <div class=" flex-child right-pane">
+                    <h4 class="headers">You can view, edit and delete your notes below: </h4>
+                    <div class="notes-container">
+                        <ul class="notes-list"></ul>
+                    </div>
                 </div>
             </div>
-            <div class=" flex-child right-pane">
-                
-            </div>
-        </div>
-    </main>
+        </main>
     </div>
 </body>
+
 </html>
