@@ -2,6 +2,7 @@
     text-align: center;
     vertical-align: middle;
     height: 100%;
+    width: 100%;
 }
 
 .headers {
@@ -11,11 +12,19 @@
     margin: 1%;
 }
 
+#main-header {
+    color: #1a1a1d;
+    font-size: 2vw;
+}
+
 .flex {
     display: flex;
     height: 85vh;
     border: 10px solid #4e4e50;
     border-radius: 25px;
+    background-color: #1a1a1d;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .flex-child {
@@ -51,7 +60,7 @@
 
 .colour-click {
     display: flex;
-    border: 3px solid black;
+    box-shadow: 0 12px 16px 0 rgba(255, 255, 255, 0.603), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
     margin-left: 2%;
     height: 40%;
     width: 16%;
@@ -77,6 +86,7 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     resize: none;
+    padding: 2%;
 }
 
 .notes-container {
@@ -112,6 +122,7 @@
     box-sizing: border-box;
     border: none;
     outline: none;
+    padding: 2%;
 }
 
 .delete-button {
@@ -130,7 +141,7 @@ body,
 html {
     margin: 5px;
     height: 100%;
-    background-color: #1a1a1d;
+    background-color: #c3073f;
 }
 
 .red {
