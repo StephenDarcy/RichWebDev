@@ -1,0 +1,37 @@
+.flex {
+    height: 100%;
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    font-size: 0;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.grid {
+    border: 1px solid black;
+    display: inline-block;
+    margin: 0px;
+    flex-grow: 1;
+    height: 100px;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+
+@media only screen and (max-width: 720px) {
+    .grid {
+        min-width: 49%;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .grid {
+        min-width: 90%;
+    }
+}
