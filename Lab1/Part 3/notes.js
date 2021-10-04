@@ -1,9 +1,9 @@
-var colourHighlight = "colour-click";
-var noteID = 1;
+const colourHighlight = "colour-click";
+let noteID = 1;
 
 $(document).ready(function() {
     $(".colour").click(function() {
-        var clicked = $(this).css("background-color");
+        let clicked = $(this).css("background-color");
         $("#textarea").css("background-color", clicked);
         $(".colour").removeClass(colourHighlight);
         $(this).addClass(colourHighlight);
@@ -11,7 +11,7 @@ $(document).ready(function() {
 
     $(".save-button").click(function(e) {
         e.preventDefault();
-        var noteText = $("#textarea").val();
+        let noteText = $("#textarea").val();
         $(".notes-list").append(
             "<li id='list" +
             noteID +
@@ -26,7 +26,7 @@ $(document).ready(function() {
             noteText +
             "</textarea></div></li>"
         );
-        var noteColour = $("#textarea").css("background-color");
+        let noteColour = $("#textarea").css("background-color");
         $("#text" + noteID).css("background", noteColour);
         $("#note" + noteID).css("background", noteColour);
         noteID++;
