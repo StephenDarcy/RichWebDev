@@ -1,12 +1,10 @@
 {
     "manifest_version": 3,
-    "name": "catsAreTheBest",
+    "name": "Pinkify",
     "version": "1.0.0",
-    "content_scripts": [
-        {
+    "content_scripts": [{
         "matches": ["<all_urls>"],
         "js": ["Content.js"]
-        }
-    ] 
-    
+    }]
+
 }
