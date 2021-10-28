@@ -1,6 +1,7 @@
 window.onload = function() {
     let error = document.getElementById("error");
     let form = document.getElementById("enterContact");
+    let descending = true;
 
     error.style.display = "none";
     form.addEventListener("submit", (e) => {
@@ -11,17 +12,18 @@ window.onload = function() {
     document.querySelectorAll(".table-head").forEach((item) => {
         item.addEventListener("click", (event) => {
             event.preventDefault();
-            sortTable(event.target.id);
+            sortTable(event.target.id, descending);
+            descending = !descending;
         });
     });
 };
 
-function sortTable(id) {
+function sortTable(id, descending) {
     let table = document.getElementById("contacts");
     let currentlySorting = true;
     let dataColumn;
 
-    //setting which <td> to query
+    //setting which <td> to query based on table head clicked
     if (id == "name") {
         dataColumn = 0;
     } else if (id == "phone") {
@@ -40,16 +42,46 @@ function sortTable(id) {
 
         //looping through every row comparing the current with the next
         for (i = 1; i < rows.length - 1; i++) {
-            console.log(i);
             let currentRow = rows[i].getElementsByTagName("TD")[dataColumn];
             let nextRow = rows[i + 1].getElementsByTagName("TD")[dataColumn];
 
-            console.log(currentRow, nextRow);
-            //checking to see if current row should be above next row
-            if (currentRow.innerHTML.toLowerCase() > nextRow.innerHTML.toLowerCase) {
-                //if current row needs to be sorted
-                sortRows = true;
-                break;
+            //checking to see if sorting by number or email/name
+            if (dataColumn == 1) {
+                //checking to see which way to sort
+                if (descending) {
+                    //checking to see if current row should be above next row
+                    if (Number(currentRow.innerHTML) > Number(nextRow.innerHTML)) {
+                        //if current row needs to be sorted
+                        sortRows = true;
+                        break;
+                    }
+                } else {
+                    //sorting opposite way
+                    if (Number(currentRow.innerHTML) < Number(nextRow.innerHTML)) {
+                        sortRows = true;
+                        break;
+                    }
+                }
+            } else {
+                //checking to see which way to sort
+                if (descending) {
+                    //checking to see if current row should be above next row
+                    if (
+                        currentRow.innerHTML.toLowerCase() > nextRow.innerHTML.toLowerCase()
+                    ) {
+                        //if current row needs to be sorted
+                        sortRows = true;
+                        break;
+                    }
+                } else {
+                    //sorting opposite way
+                    if (
+                        currentRow.innerHTML.toLowerCase() < nextRow.innerHTML.toLowerCase()
+                    ) {
+                        sortRows = true;
+                        break;
+                    }
+                }
             }
         }
 
@@ -76,24 +108,24 @@ function addToContacts() {
     //checking for empty fields and displaying error
     if (name === "" || phone === "" || email === "") {
         error.style.display = "block";
-        error.innerHTML += "All fields must have a valid value";
+        error.innerHTML += "ERROR! All fields must have a valid value";
     } else if (validateName(name)) {
         //validating the name and displaying error if invalid
         //error
         error.style.display = "block";
         error.innerHTML +=
-            "Invalid contact name - Should contain only Alphabets and Space. Should be less than or equal to 20 characters in length.";
+            "ERROR! Invalid contact name - Should contain only Alphabets and Space. Should be less than or equal to 20 characters in length.";
     } else if (validateEmail(email)) {
         //validating the email and displaying error if invalid
         //error
         error.style.display = "block";
         error.innerHTML +=
-            "Invalid email - Should have a proper validation and should be less than 40 characters in length.";
+            "ERROR! Invalid email - Should have a proper validation and should be less than 40 characters in length.";
     } else if (validatePhone(phone)) {
         //validating the phone number and displaying error if invalid
         error.style.display = "block";
         error.innerHTML +=
-            "Invalid contact number - Should contain only Numbers. Should be equal to 10 characters in length.";
+            "ERROR! Invalid contact number - Should contain only Numbers. Should be equal to 10 characters in length.";
     } else {
         //hide error if successful
         error.style.display = "none";
