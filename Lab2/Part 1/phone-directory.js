@@ -1,14 +1,19 @@
+/**
+ * Function that runs on load to add event listeners and hide the error box
+ */
 window.onload = function() {
     let error = document.getElementById("error");
-    let form = document.getElementById("enterContact");
+    let button = document.getElementById("submit-button");
     let descending = true;
 
     error.style.display = "none";
-    form.addEventListener("submit", (e) => {
+    //adding event listener to the submit button
+    button.addEventListener("click", (e) => {
         e.preventDefault();
         addToContacts();
     });
 
+    //adding event listener to all elements with the class table-head
     document.querySelectorAll(".table-head").forEach((item) => {
         item.addEventListener("click", (event) => {
             event.preventDefault();
@@ -18,6 +23,12 @@ window.onload = function() {
     });
 };
 
+/**
+ * Function that sorts the contacts table. It loops through all the rows and
+ * uses a certain sorting method based on the id. Sorts both ascending and descending
+ * @param {string} id id of the table head that was clicked to call this function
+ * @param {boolean} descending lets the function know if it should be ascending or descending
+ */
 function sortTable(id, descending) {
     let table = document.getElementById("contacts");
     let currentlySorting = true;
@@ -93,6 +104,9 @@ function sortTable(id, descending) {
     }
 }
 
+/**
+ * Function that dynamically adds new table rows based on user input
+ */
 function addToContacts() {
     //clear error text
     error.innerHTML = "";
@@ -115,7 +129,7 @@ function addToContacts() {
         error.style.display = "block";
         error.innerHTML +=
             "ERROR! Invalid contact name - Should contain only Alphabets and Space. Should be less than or equal to 20 characters in length.";
-    } else if (validateEmail(email)) {
+    } else if (!validateEmail(email)) {
         //validating the email and displaying error if invalid
         //error
         error.style.display = "block";
@@ -155,6 +169,11 @@ function addToContacts() {
     }
 }
 
+/**
+ * Function that ensures the name data is compliant with the requirements
+ * @param {string} name the name to be added to the table
+ * @returns returns true or false based on success
+ */
 function validateName(name) {
     //check name length less than or equal to 20
     if (name.length > 20) {
@@ -167,12 +186,44 @@ function validateName(name) {
     }
 }
 
+/**
+ * Function that validates the email length and syntax
+ * @param {string} email the email to be added to the table
+ * @returns true or false based on result
+ */
 function validateEmail(email) {
-    //check email length less than or equal to 40, input type is email
-    return email.length > 40;
+    var valid = /\S+@\S+\.\S+/;
+    if (valid.test(email) && email.length < 40) {
+        return true;
+    }
+
+    return false;
 }
 
+/**
+ * Function that ensures phone number length is equal to 10
+ * @param {integer} phone number to be added to table
+ * @returns true or false based on result
+ */
 function validatePhone(phone) {
     //check phone number is 10 digits long, input type is number so no other validation required
     return phone.length != 10;
+}
+
+/**
+ * Function that filters the table results based on input in a search bar
+ */
+function filterTable() {
+    let filter = document.getElementById("search-bar").value;
+    let table = document.getElementById("contacts");
+    let rows = table.getElementsByTagName("tr");
+
+    for (let index of rows) {
+        let currentRow = rows[index].getElementsByTagName("td")[0];
+        if (currentRow.innerHTML.indexOf(filter) > -1) {
+            rows[index].style.display = "";
+        } else {
+            rows.style.display = "none";
+        }
+    }
 }
