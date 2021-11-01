@@ -228,20 +228,3 @@ function filterTable() {
         }
     }
 }
-
-/*
-function searchFunction() {
-    let tabel, filter, input, tr, td, i;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    tabel = document.getElementById("myTable");
-    tr = document.getElementsByTagName("tr");
-    for (i = 1; i < tr.length; i++) {
-        if (tr[i].textContent.toUpperCase().indexOf(filter) > -1) {
-            tr[i].style.display = "";
-        } else {
-            tr[i].style.display = "none";
-        }
-    }
-}
-*/
