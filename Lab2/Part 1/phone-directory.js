@@ -35,9 +35,9 @@ function sortTable(id, descending) {
     let dataColumn;
 
     //setting which <td> to query based on table head clicked
-    if (id == "name") {
+    if (id == "name-head") {
         dataColumn = 0;
-    } else if (id == "phone") {
+    } else if (id == "phone-head") {
         dataColumn = 1;
     } else {
         dataColumn = 2;
@@ -217,13 +217,31 @@ function filterTable() {
     let filter = document.getElementById("search-bar").value;
     let table = document.getElementById("contacts");
     let rows = table.getElementsByTagName("tr");
+    let i;
 
-    for (let index of rows) {
-        let currentRow = rows[index].getElementsByTagName("td")[0];
+    for (i = 1; i < rows.length; i++) {
+        let currentRow = rows[i].getElementsByTagName("td")[1];
         if (currentRow.innerHTML.indexOf(filter) > -1) {
-            rows[index].style.display = "";
+            rows[i].style.display = "";
         } else {
-            rows.style.display = "none";
+            rows[i].style.display = "none";
         }
     }
 }
+
+/*
+function searchFunction() {
+    let tabel, filter, input, tr, td, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    tabel = document.getElementById("myTable");
+    tr = document.getElementsByTagName("tr");
+    for (i = 1; i < tr.length; i++) {
+        if (tr[i].textContent.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+        } else {
+            tr[i].style.display = "none";
+        }
+    }
+}
+*/
