@@ -3,10 +3,12 @@
  */
 window.onload = function() {
     let error = document.getElementById("error");
+    let noResult = document.getElementById("noResult");
     let button = document.getElementById("submit-button");
     let descending = true;
 
     error.style.display = "none";
+    noResult.style.display = "none";
     //adding event listener to the submit button
     button.addEventListener("click", (e) => {
         e.preventDefault();
@@ -218,6 +220,7 @@ function filterTable() {
     let table = document.getElementById("contacts");
     let rows = table.getElementsByTagName("tr");
     let i;
+    let rowsHiddenCount = 0;
 
     for (i = 1; i < rows.length; i++) {
         let currentRow = rows[i].getElementsByTagName("td")[1];
@@ -225,6 +228,14 @@ function filterTable() {
             rows[i].style.display = "";
         } else {
             rows[i].style.display = "none";
+            rowsHiddenCount++;
         }
+    }
+
+    console.log(table.rows.length, filter.length, rowsHiddenCount);
+    if (rowsHiddenCount == table.rows.length - 1 && filter.length != 0) {
+        noResult.style.display = "block";
+    } else {
+        noResult.style.display = "none";
     }
 }
