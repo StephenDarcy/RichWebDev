@@ -213,7 +213,8 @@ function validatePhone(phone) {
 }
 
 /**
- * Function that filters the table results based on input in a search bar
+ * Function that filters the table results based on input in a search bar.
+ * Also displays an error div on no result
  */
 function filterTable() {
     let filter = document.getElementById("search-bar").value;
@@ -222,6 +223,7 @@ function filterTable() {
     let i;
     let rowsHiddenCount = 0;
 
+    //looping through all the rows to check if the mobile number row matches the input
     for (i = 1; i < rows.length; i++) {
         let currentRow = rows[i].getElementsByTagName("td")[1];
         if (currentRow.innerHTML.indexOf(filter) > -1) {
@@ -232,7 +234,7 @@ function filterTable() {
         }
     }
 
-    console.log(table.rows.length, filter.length, rowsHiddenCount);
+    //displaying an error div if all the rows are hidden and something is in the search box
     if (rowsHiddenCount == table.rows.length - 1 && filter.length != 0) {
         noResult.style.display = "block";
     } else {
