@@ -15,9 +15,13 @@ fetch("https://jsonplaceholder.typicode.com/posts")
  * @param {string} json a JSON string containing an array of objects which contain the titles
  */
 function postTitles(json) {
+  //adding all the titles to an array
   const titles = json.map((a) => a.title);
+
+  //filtering the array
   const filteredTitles = titles.filter(wordCount);
 
+  //returns only titles greater than 6
   function wordCount(title) {
     if (title.split(/\s+/).length > 6) {
       return title;
@@ -37,16 +41,26 @@ fetch("https://jsonplaceholder.typicode.com/posts")
  * @param {string} json a JSON string containing an array of objects which contain the titles
  */
 function wordMap(json) {
-  const bodies = json.map((a) => a.body);
-  console.log(bodies);
+  //converting to string to remove the escaped new lines
+  var jsonString = JSON.stringify(json);
+  var cleanString = jsonString.replace(/\\n/g, " ");
 
+  //back to object array so we can use the array operations
+  var obj = JSON.parse(cleanString);
+  delete obj.title;
+
+  //mapping the bodies to a new array
+  const bodies = obj.map((a) => a.body);
+
+  //splitting it into an array of individual words
   const wordsArray = bodies.flatMap((body) => body.split(" "));
   const arrayMap = {};
 
-  console.log(wordsArray);
+  //counting the occurance of each word and incrementing its value
   wordsArray.forEach((element) => {
     let count = arrayMap[element] || 0;
     arrayMap[element] = count + 1;
   });
+
   console.log(arrayMap);
 }

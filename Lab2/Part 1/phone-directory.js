@@ -30,8 +30,8 @@ window.onload = function () {
  * uses a certain sorting method based on the id. Sorts both ascending and descending
  * @param {string} id id of the table head that was clicked to call this function
  * @param {boolean} descending lets the function know if it should be ascending or descending
- * Note: I was unaware we had to only sort by name initially, so I kept the sorting for other headings in.
- * As a result this function is a little messier and not very DRY, apologies
+ * Note: I was unaware we had to only sort by name initially. However, I kept the sorting for other
+ * headings in. As a result this function is a little messier and not very DRY, apologies
  */
 function sortTable(id, descending) {
   let table = document.getElementById("contacts");

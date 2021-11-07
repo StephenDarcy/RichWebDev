@@ -1,3 +1,7 @@
 .table-head:hover {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+.contacts-table tr:nth-child(odd) {
+  background-color: #f2f2f2;
 }
