@@ -1,51 +1,66 @@
-const { text } = require("body-parser");
 const { fromEvent } = require("rxjs");
 
 let saveButton = document.getElementsByClassName("save-button");
 let colourBox = document.getElementsByClassName("colour");
 let notesList = document.getElementById("notes-list");
-
-//static elements that will be added dynamically
-const deleteButton = document.createElement("button");
-deleteButton.className += "delete-button";
-const li = document.createElement("li");
-const div = document.createElement("div");
-div.className += "note";
-const textarea = document.createElement("textarea");
-textarea.className += "textOnNote";
-
+let textBox = document.getElementById("textarea");
 let noteID = 0;
 
 fromEvent(saveButton, "click").subscribe(() => {
-  let noteText = document.getElementById("textarea").value;
+  let noteText = textBox.value;
+  let noteColour = textBox.className;
 
-  textarea.value = noteText;
-  textarea.id = "TextBox " + noteID;
+  let deleteButton = document.createElement("button");
+  deleteButton.className += "delete-button";
   deleteButton.textContent = " x ";
   deleteButton.id = "DeleteBtn " + noteID;
+
+  let li = document.createElement("li");
+  li.id = "ListItem " + noteID;
+
+  let div = document.createElement("div");
+  div.className += "note";
+  div.id = "NoteDiv " + noteID;
+  div.style.backgroundColor = noteColour;
+
+  let textarea = document.createElement("textarea");
+  textarea.className += "textOnNote";
+  textarea.id = "TextBox " + noteID;
+  textarea.style.backgroundColor = noteColour;
+
   div.appendChild(deleteButton);
   div.appendChild(textarea);
-
-  div.id = "NoteDiv " + noteID;
   li.appendChild(div);
-
-  li.id = "ListItem " + noteID;
   notesList.appendChild(li);
 
-  document.getElementById("TextBox " + noteID).style.backgroundColor =
-    textarea.style.backgroundColor;
-
-  document.getElementById("NoteDiv " + noteID).style.backgroundColor = "red";
-
-  textarea.value = " ";
+  document.getElementById("TextBox " + noteID).value = noteText;
+  document.getElementById("textarea").value = "";
   noteID++;
 });
 
-fromEvent(colourBox, "click").subscribe((e) => {});
+fromEvent(colourBox, "click").subscribe((e) => {
+  let clicked = e.target.className.split(" ")[1];
+
+  document.getElementById("textarea").className = clicked;
+
+  let colourBoxes = document.getElementsByClassName("colour");
+  for (let i = 0; i < colourBoxes.length; i++) {
+    if (colourBoxes[i] instanceof HTMLElement) {
+      colourBoxes[i].classList.remove("colour-click");
+    }
+  }
+
+  e.target.className += " colour-click";
+});
+
+fromEvent(document.body, "click").subscribe((e) => {
+  if (e.target.className == "delete-button") {
+    let node = e.target;
+    node.parentNode.parentNode.removeChild(node.parentNode);
+  }
+});
 
 /*
-const colourHighlight = "colour-click";
-
 $(document).ready(function () {
   $(".colour").click(function () {
     let clicked = $(this).css("background-color");
