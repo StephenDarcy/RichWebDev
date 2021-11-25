@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Simple Note Taking App</title>
+    <link rel="stylesheet" href="notes.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous">
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="headers" id="main-header">Simple Note Taking App</h1>
+        </header>
+        <main>
+            <div class="flex">
+                <div class="flex-child left-pane">
+                    <h2 class="headers">Choose a colour for your note:</h2>
+                    <div class="colour-box">
+                        <div class="colour red"> </div>
+                        <div class="colour pink"> </div>
+                        <div class="colour orange"> </div>
+                        <div class="colour yellow"> </div>
+                        <div class="colour purple"> </div>
+                        <div class="colour green"> </div>
+                        <div class="colour blue"> </div>
+                        <div class="colour brown"> </div>
+                        <div class="colour white"> </div>
+                        <div class="colour grey"> </div>
+                    </div>
+                    <div>
+                        <h3 class="headers" id="write-note">Write a note:</h3>
+                        <button class="save-button" id="save-note">Save</button>
+                    </div>
+
+                    <div class="note-box">
+                        <textarea placeholder="Start typing here..." id="textarea"></textarea>
+                    </div>
+
+                </div>
+                <div class=" flex-child right-pane">
+                    <h4 class="headers">You can view, edit and delete your notes below: </h4>
+                    <div class="notes-container">
+                        <ul class="notes-list" id="notes-list"></ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script type="text/javascript" src="bundle.js"></script>
+</body>
+
+</html>
