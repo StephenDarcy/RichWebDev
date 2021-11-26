@@ -1,0 +1,63 @@
+.container {
+  text-align: center;
+  vertical-align: middle;
+  height: 100%;
+  width: 100%;
+}
+
+.headers {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #1a1a1d;
+  font-size: 4vw;
+  margin: 3%;
+}
+
+.flex {
+  display: flex;
+  height: 45vh;
+  border: 10px solid #4e4e50;
+  border-radius: 25px;
+  background-color: #1a1a1d;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.flex-child {
+  flex: 1;
+}
+
+body,
+html {
+  margin: 15px;
+  height: 100%;
+  background-color: wheat;
+}
+
+.timer-row {
+  height: 50%;
+}
+
+.hms-row {
+  height: 50%;
+}
+
+.form {
+  margin-top: 10%;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-bottom: 5%;
+}
+
+.form input {
+  width: 15%;
+}
+
+.input-big {
+  height: 5vh;
+}
+
+.input-small {
+  height: 2.5vh;
+  position: absolute;
+  bottom: 0%;
+}
