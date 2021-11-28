@@ -61,6 +61,7 @@ fromEvent(document.body, "click").subscribe((e) => {
 });
 
 /*
+***old implementation 
 $(document).ready(function () {
   $(".colour").click(function () {
     let clicked = $(this).css("background-color");
