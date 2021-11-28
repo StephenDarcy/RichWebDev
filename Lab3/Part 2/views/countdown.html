@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="countdown.css">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
+    <link rel="stylesheet" crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -18,14 +19,14 @@
                 <div class="flex-child">
                     <div class="hms-row">
                         <form class="form">                        
-                            <input class="input-big" id="hours" placeholder="h">
-                            <input class="input-big" id="minutes" placeholder="m">
-                            <input class="input-small" id="seconds" placeholder="s">
+                            <input type="number" class="input-big" id="hours" placeholder="h">
+                            <input type="number" class="input-big" id="minutes" placeholder="m">
+                            <input type="number" class="input-small" id="seconds" placeholder="s">
                         </form>
-                        <button type="button">Start Countdown</button>
+                        <button id="start-button" type="button"><em class="fa fa-play"></em>START COUNTDOWN</button>
                     </div>
                     <div class="timer-row">
-                        
+                        <div id="timer"></div>
                     </div>
                 </div>
             </div>

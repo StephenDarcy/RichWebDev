@@ -35,21 +35,36 @@ html {
 
 .timer-row {
   height: 50%;
+  font-size: 150px;
+  color: aliceblue;
+  justify-content: center;
+}
+
+#timer {
+  height: 100%;
+}
+
+#start-button {
+  height: 25%;
 }
 
 .hms-row {
-  height: 50%;
+  height: 30%;
 }
 
 .form {
   margin-top: 10%;
   margin-left: 15%;
   margin-right: 15%;
-  margin-bottom: 5%;
+  margin-bottom: 1%;
 }
 
 .form input {
   width: 15%;
+  margin: 1%;
+  text-align: center;
+  font-size: 2vh;
+  border-radius: 0.5vh;
 }
 
 .input-big {
@@ -58,6 +73,8 @@ html {
 
 .input-small {
   height: 2.5vh;
-  position: absolute;
-  bottom: 0%;
+}
+
+::placeholder {
+  font-size: 2vh;
 }
