@@ -1,8 +1,8 @@
-import './App.css';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import NotesBox from './components/NotesBox';
+import "./App.css";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import NotesBox from "./components/NotesBox";
 
 function App() {
   return (
@@ -17,7 +17,6 @@ function App() {
           <NotesBox />
         </Col>
       </Row>
-      
     </Container>
   );
 }

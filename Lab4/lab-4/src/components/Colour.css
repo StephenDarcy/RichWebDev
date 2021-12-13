@@ -1,0 +1,46 @@
+.red {
+  background-color: #dc143c;
+}
+
+.pink {
+  background-color: #ff69b4;
+}
+
+.orange {
+  background-color: #ff4500;
+}
+
+.yellow {
+  background-color: #ffd700;
+}
+
+.purple {
+  background-color: #4b0082;
+}
+
+.green {
+  background-color: #7fff00;
+}
+
+.blue {
+  background-color: cadetblue;
+}
+
+.brown {
+  background-color: #deb887;
+}
+
+.white {
+  background-color: #ffffff;
+}
+
+.grey {
+  background-color: #a9a9a9;
+}
+
+.colourBox {
+  height: 10vh;
+  border: 1px solid #4e4e50;
+  border-radius: 5px;
+  margin-top: 1vh;
+}
